@@ -7,12 +7,12 @@ import fr.tpbank.model.CompteEpargne;
 
 public class CompteFactory {
 
-    public static Compte creerCompte(String type,int id , double solde, Client client, double decouvert , double taux, int frais) {
-        switch (type) {
-            case "courant":
-                return new CompteCourant(id, solde, client, decouvert, frais);
-            case "epargne":
-                return new CompteEpargne(id, solde, client, taux);
+    public static Compte creerCompte(String type,int compte_id , double solde, Client client, double decouvert , double taux, int frais) {
+        switch (type.toUpperCase()) {
+            case "COURANT":
+                return new CompteCourant(compte_id, solde, client, decouvert, frais);
+            case "EPARGNE":
+                return new CompteEpargne(compte_id, solde, client, taux);
             default:
                 throw new IllegalArgumentException("Type de compte inexistant");
         }

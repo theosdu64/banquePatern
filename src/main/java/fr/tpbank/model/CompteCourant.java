@@ -5,9 +5,25 @@ public class CompteCourant extends Compte{
     private double decouvertAutorisé;
     private double frais;
 
-    public CompteCourant(int id, double solde, Client client, double decouvertAutorisé, double frais) {
-        super(id, solde, client);
+    public CompteCourant(int compte_id, double solde, Client client, double decouvertAutorisé, double frais) {
+        super(compte_id, solde, client);
         this.decouvertAutorisé = decouvertAutorisé;
+        this.frais = frais;
+    }
+
+    public double getDecouvertAutorisé() {
+        return decouvertAutorisé;
+    }
+
+    public void setDecouvertAutorisé(double decouvertAutorisé) {
+        this.decouvertAutorisé = decouvertAutorisé;
+    }
+
+    public double getFrais() {
+        return frais;
+    }
+
+    public void setFrais(double frais) {
         this.frais = frais;
     }
 
@@ -28,7 +44,7 @@ public class CompteCourant extends Compte{
         return "CompteCourant{" +
                 "decouvertAutorisé=" + decouvertAutorisé +
                 ", frais=" + frais +
-                ", id=" + id +
+                ", id=" + compte_id +
                 ", solde=" + solde +
                 ", client=" + client +
                 '}';

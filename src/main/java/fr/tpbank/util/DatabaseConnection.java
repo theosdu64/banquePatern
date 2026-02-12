@@ -17,6 +17,7 @@ public class DatabaseConnection {
     private DatabaseConnection() {
         try {
             connection = DriverManager.getConnection(URL, USER, PASSWORD);
+            connection.setAutoCommit(true);
             System.out.println("Connexion à la BDD réussie");
         } catch (SQLException e) {
             throw new RuntimeException("Erreur de connexion en BDD", e);

@@ -1,26 +1,26 @@
 package fr.tpbank.model;
 
 public class Client {
-    private String id_client;
+    private Integer client_id;
     private String name;
     private String surname;
     private String email;
     private String password;
 
-    public Client(String id_client, String name, String surname, String email, String password) {
-        this.id_client = id_client;
+    public Client(Integer client_id, String name, String surname, String email, String password) {
+        this.client_id = client_id;
         this.name = name;
         this.surname = surname;
         this.email = email;
         this.password = password;
     }
 
-    public String getId_client() {
-        return id_client;
+    public Integer getId_client() {
+        return client_id;
     }
 
-    public void setId_client(String id_client) {
-        this.id_client = id_client;
+    public void setId_client(Integer id_client) {
+        this.client_id = id_client;
     }
 
     public String getName() {
@@ -57,7 +57,7 @@ public class Client {
 
     @Override
     public String toString() {
-        return "Client{" + "id_client=" + id_client
+        return "Client{" + "id_client=" + client_id
                 + ", name=" + name
                 + ", surname=" + surname
                 + ", email=" + email

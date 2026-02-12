@@ -4,8 +4,8 @@ public class CompteEpargne extends Compte {
 
     private double taux_interet;
 
-    public CompteEpargne(int id, double solde, Client client, double taux_interet) {
-        super(id, solde, client);
+    public CompteEpargne(int compte_id, double solde, Client client, double taux_interet) {
+        super(compte_id, solde, client);
         this.taux_interet = taux_interet;
     }
 
@@ -34,7 +34,7 @@ public class CompteEpargne extends Compte {
     public String toString() {
         return "CompteEpargne{" +
                 "taux_interet=" + taux_interet +
-                ", id=" + id +
+                ", id=" + compte_id +
                 ", solde=" + solde +
                 ", client=" + client +
                 '}';

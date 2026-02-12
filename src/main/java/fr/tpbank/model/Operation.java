@@ -4,14 +4,14 @@ import java.time.LocalDateTime;
 
 public class Operation {
 
-    private int id;
+    private int operation_id;
     private String type;
     private double montant;
     private LocalDateTime date;
     private Compte compte;
 
-    public Operation(int id, String type, double montant, LocalDateTime date, Compte compte) {
-        this.id = id;
+    public Operation(int operation_id, String type, double montant, LocalDateTime date, Compte compte) {
+        this.operation_id = operation_id;
         this.type = type;
         this.montant = montant;
         this.date = date;
@@ -26,12 +26,12 @@ public class Operation {
         this.date = date;
     }
 
-    public int getId() {
-        return id;
+    public int getOperation_id() {
+        return operation_id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setOperation_id(int operation_id) {
+        this.operation_id = operation_id;
     }
 
     public String getType() {
@@ -61,7 +61,7 @@ public class Operation {
     @Override
     public String toString() {
         return "Operation{" +
-                "id=" + id +
+                "id=" + operation_id +
                 ", type='" + type + '\'' +
                 ", montant=" + montant +
                 ", date=" + date +

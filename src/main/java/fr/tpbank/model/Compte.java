@@ -1,12 +1,12 @@
 package fr.tpbank.model;
 
 public abstract class Compte {
-    protected int id;
+    protected int compte_id;
     protected double solde;
     protected Client client;
 
-    protected Compte(int id, double solde, Client client) {
-        this.id = id;
+    protected Compte(int compte_id, double solde, Client client) {
+        this.compte_id = compte_id;
         this.solde = solde;
         this.client = client;
     }
@@ -28,11 +28,11 @@ public abstract class Compte {
     }
 
     public int getId() {
-        return id;
+        return compte_id;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.compte_id = id;
     }
 
     public void deposer(double montant) {
@@ -47,7 +47,7 @@ public abstract class Compte {
     @Override
     public String toString() {
         return "Compte{" +
-                "id=" + id +
+                "id=" + compte_id +
                 ", solde=" + solde +
                 ", client=" + client +
                 '}';
