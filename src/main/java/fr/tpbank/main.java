@@ -1,5 +1,6 @@
 package fr.tpbank;
 
+import fr.tpbank.business.BankingBusiness;
 import fr.tpbank.dao.ClientDAOImpl;
 import fr.tpbank.dao.CompteDAOImpl;
 import fr.tpbank.dao.OperationDAOImpl;
@@ -21,13 +22,23 @@ public class main {
     public static void main(String[] args) {
         DatabaseConnection db1 = DatabaseConnection.getInstance();
         DatabaseConnection db2 = DatabaseConnection.getInstance();
+        BankingBusiness business = new BankingBusiness();
 
         System.out.println(db1 == db2);
-        System.out.println("////////////////////////////////////");
+        System.out.println("////////// Modifie solde /////////////////");
         testMofieSolde();
-        System.out.println("////////////////////////////////////");
-
+        System.out.println("------ Commpte User id : 1 -----------------");
+        business.afficherResume(1);
+        System.out.println("///////////////////////////////////////////////////////");
+        System.out.println("------ Faire un depot sur User id : 1 , 500 euros -----------------");
+        business.deposer(1, 500);
+        System.out.println("///////////////////////////////////////////////////////");
+        System.out.println("------ Obtenir Opearion User id : 1 -----------------");
+        business.afficherHistorique(1);
     }
+
+
+
 
     private static void testMofieSolde() {
         try {
@@ -49,35 +60,5 @@ public class main {
             System.out.println("Erreur Client");
         }
     }
-
-    private static void testListerCompte() {
-        System.out.println("--- Test : Lister les comptes d'un client ---");
-        try {
-            CompteDAO compteDAO = new CompteDAOImpl();
-            ClientDAO clientDAO = new ClientDAOImpl();
-            OperationDAO operationDAO = new OperationDAOImpl();
-            CompteService compteService = new CompteService(compteDAO, clientDAO, operationDAO);
-
-            List<Compte> comptes = compteService.listerCompte(1);
-
-            if (comptes != null && !comptes.isEmpty()) {
-                for (Compte c : comptes) {
-                    System.out.println(c);
-                }
-                System.out.println();
-            } else {
-                System.out.println("Pas de compte trouvé");
-            }
-
-        } catch (Exception e) {
-            System.out.println("Erreur : " + e.getMessage());
-            e.printStackTrace();
-            System.out.println();
-        }
-    }
-
-
-
-
 
 }
